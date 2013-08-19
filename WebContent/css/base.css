@@ -1,0 +1,56 @@
+/** ----- Header ----- */
+.page-header {
+	float: right;
+}
+
+/** ----- Menu ----- */
+
+
+/** ----- Content ----- */
+.inline {
+	display: inline;
+}
+
+.hidden {
+	display:none;
+}
+
+.red {
+	color: #f00;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.loading {
+	background: #fff url(../img/loading.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 64px;
+    width: 64px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reg-error {
+	color: #f00;
+}
+
+/* Clear floats */
+.clear {
+	*zoom: 1;
+}
+.clear:before, .clear:after {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+.clear:after {
+	clear: both;
+}
+
+/** ----- Footer ----- */
+.footer {
+	text-align: center;
+}
