@@ -1,0 +1,10 @@
+This is a simple web project.
+
+Download 'peservice' project and run ant command from command line: 'ant deploy'. This command creates WebContent directory.
+The location of WebContent directory can be changed in 'project.properties' file. 
+Copy WebContent folder to Tomcat (other application server) webapps directory. Run application server.
+
+The service location is '/WebContent/se' and page location is '/WebContent/pe'. Service is build on json.
+
+The page every 1 second asks by Ajax (jQuery) new data from server. The new data will display on page.
+The server renews data every 5 seconds from 'people.proekspert.ee/ak/data_n.txt' where 'n' is a number 1 - 9.  
