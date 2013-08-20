@@ -1,23 +1,11 @@
 <?xml version="1.0" ?> 
-<project default="war">
+<project default="deploy">
 	<loadproperties srcFile="project.properties"/>
 	<property name="build.folder" value="${webcontent.path}/WebContent" />
 	<property name="build.folder.lib" value="${build.folder}/WEB-INF/lib" />
 	<property name="build.folder.classes" value="${build.folder}/WEB-INF/classes" />
 	
-	<target name="war" depends="init,compile,copy">
-		<war destfile="${webcontent.path}/WebContent.war" webxml="${build.folder}/WEB-INF/web.xml">
-			<fileset dir="${build.folder}">
-				<include name="**/*.*" />
-				<exclude name="classes" />
-			</fileset>
-			<lib dir="${build.folder.lib}" />
-			<classes dir="${build.folder.classes}" />
-		</war>
-		<delete includeemptydirs="true">
-			<fileset dir="${build.folder}" />
-		</delete>
-	</target>
+	<target name="deploy" depends="init,compile,copy" />
 	
 	<target name="init">
 		<echo message="Deleting forder: ${build.folder}" level="info" />
