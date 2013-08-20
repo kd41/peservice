@@ -2,8 +2,8 @@
 <project default="war">
 	<loadproperties srcFile="project.properties"/>
 	<property name="build.folder" value="${webcontent.path}/WebContent" />
-	<property name="build.folder.lib" value="${build.folder}/lib" />
-	<property name="build.folder.classes" value="${build.folder}/classes" />
+	<property name="build.folder.lib" value="${build.folder}/WEB-INF/lib" />
+	<property name="build.folder.classes" value="${build.folder}/WEB-INF/classes" />
 	
 	<target name="war" depends="init,compile,copy">
 		<war destfile="${webcontent.path}/WebContent.war" webxml="${build.folder}/WEB-INF/web.xml">
@@ -11,10 +11,11 @@
 				<include name="**/*.*" />
 				<exclude name="classes" />
 			</fileset>
+			<lib dir="${build.folder.lib}" />
+			<classes dir="${build.folder.classes}" />
 		</war>
 		<delete includeemptydirs="true">
-			<fileset dir="${build.folder}">
-			</fileset>
+			<fileset dir="${build.folder}" />
 		</delete>
 	</target>
 	
@@ -23,7 +24,7 @@
 		<delete includeemptydirs="true" quiet="true">
     		<fileset dir="${build.folder}" includes="**/*" />
   		</delete>
-		<mkdir dir="${build.folder}/lib" />
+		<mkdir dir="${build.folder.lib}" />
 		<mkdir dir="${build.folder.classes}" />
 	</target>
 	
@@ -43,13 +44,9 @@
 		<echo message="Coping WebContent files..." level="info" />
 		<copy todir="${build.folder}">
 			<fileset dir="WebContent" >
-				<include name="**/*"/>  
+				<include name="**/*" />
 			</fileset> 
 		</copy>
-		<delete includeemptydirs="true">
-			<fileset dir="${build.folder.lib}" />
-			<fileset dir="${build.folder.classes}" />
-		</delete>
 	</target>
 	
 </project>
