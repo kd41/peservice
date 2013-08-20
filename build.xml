@@ -8,8 +8,9 @@
 	<target name="war" depends="init,compile,copy">
 		<war destfile="${webcontent.path}/WebContent.war" webxml="${build.folder}/WEB-INF/web.xml">
 			<fileset dir="${build.folder}">
-				<include name="**/*.*"/>
-			</fileset>	
+				<include name="**/*.*" />
+				<exclude name="classes" />
+			</fileset>
 		</war>
 		<delete includeemptydirs="true">
 			<fileset dir="${build.folder}">
@@ -45,6 +46,10 @@
 				<include name="**/*"/>  
 			</fileset> 
 		</copy>
+		<delete includeemptydirs="true">
+			<fileset dir="${build.folder.lib}" />
+			<fileset dir="${build.folder.classes}" />
+		</delete>
 	</target>
 	
 </project>
