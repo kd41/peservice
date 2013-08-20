@@ -30,7 +30,7 @@
 	
 	<target name="compile">
 		<echo message="Compiling code..." level="info" />
-			<javac srcdir="src" destdir="${build.folder.classes}" includeantruntime="false" debug="on" source="1.6">
+		<javac srcdir="src" destdir="${build.folder.classes}" includeantruntime="false" debug="on" source="1.6">
 			<classpath>
 				<pathelement path="${classpath}" />
 				<fileset dir="lib">
@@ -44,6 +44,11 @@
 		<echo message="Coping WebContent files..." level="info" />
 		<copy todir="${build.folder}">
 			<fileset dir="WebContent" >
+				<include name="**/*" />
+			</fileset> 
+		</copy>
+		<copy todir="${build.folder.lib}">
+			<fileset dir="lib" >
 				<include name="**/*" />
 			</fileset> 
 		</copy>
